@@ -158,7 +158,7 @@ def show(namestxt, not_done_dir, done_dir, done):
 @click.argument("EXCELFILE", type=click_pathlib.Path(exists=True, dir_okay=False))
 @click.argument("tutorname", envvar="TUTN", type=click.STRING, required=True)
 @click.argument("NAMESTXT", default="names.txt", type=click_pathlib.Path(exists=True, dir_okay=False))
-def show(excelfile, namestxt, tutorname):
+def to_xlsx(excelfile, namestxt, tutorname):
     xl = pd.read_excel(excelfile, dtype={"ID-Nummer": "string"})
     punkte_col = next(s for s in xl.columns if s.endswith("Punkte"))
     df = read_names(namestxt)
