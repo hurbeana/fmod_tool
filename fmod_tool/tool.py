@@ -31,7 +31,7 @@ if not names_txt_path.exists():
 
 settings = load(settings_file.read_text(), Loader=SafeLoader)
 try:
-    max_p = {k: int(v) for k, v in settings["Maximum Points"].items()}
+    max_p = {int(k): int(v) for k, v in settings["Maximum Points"].items()}
 except ValueError:
     print("Please provide numbers for the points")
     exit(-1)
