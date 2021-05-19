@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fmod_tool"
-version = "0.1.5"
+version = "0.1.7"
 description = "A simple tool made to help keep track when correcting exercises for the course \"Formale Modellierung\""
 authors = ["Hurbean Alexander <alexander.hurbean@tuwien.ac.at>"]
 license = "MIT"

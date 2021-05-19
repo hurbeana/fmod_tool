@@ -11,17 +11,17 @@ default_settings = \
     1: 3
     2: 4
     3: 4
-    4: 4,
-    5: 3,
-    6: 3,
-    7: 3,
-    8: 2,
-    9: 2,
-    10: 4,
-    11: 4,
-    12: 3,
-    13: 3,
-    14: 4,
+    4: 4
+    5: 3
+    6: 3
+    7: 3
+    8: 2
+    9: 2
+    10: 4
+    11: 4
+    12: 3
+    13: 3
+    14: 4
     15: 4
 # select what to happen after done correcting one hand in
 # Possible choices:
