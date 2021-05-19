@@ -31,7 +31,7 @@ class Student:
         return t
 
 
-def extract(pdfdir):
+def extract(pdfdir, max_p):
     students = []
     for p in pdfdir.rglob("*.pdf"):
         p_name = p.stem

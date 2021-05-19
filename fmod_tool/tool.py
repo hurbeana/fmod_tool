@@ -25,10 +25,6 @@ if not not_done_path.exists():
     print("[ERROR]: Missing 'not_done' directory, please create it and put pdfs into it before proceeding")
     exit(-1)
 
-if not names_txt_path.exists():
-    print("[ERROR]: Please run the extract command first, names.txt missing")
-    exit(-1)
-
 settings = load(settings_file.read_text(), Loader=SafeLoader)
 try:
     max_p = {str(k): int(v) for k, v in settings["Maximum Points"].items()}
@@ -52,7 +48,7 @@ def extract_command():
     for a, _ in max_p.items():
         header += f"{a},"
     header += f"EN\n"
-    students = extract(not_done_path)
+    students = extract(not_done_path, max_p)
     with names_txt_path.open("w") as o:
         o.write(header)
         o.write("\n".join(str(s) for s in students))
@@ -75,6 +71,10 @@ def correct(matnr):
     Starts one correction of the given MATNR. PDF with the same MATNR needs to exist in the not_done folder.
     After the last enter, the chosen action from settings.yml will be taken (NOTHING | REMOVE | RENAME).
     """
+    if not names_txt_path.exists():
+        print("[ERROR]: Please run the extract command first, names.txt missing")
+        exit(-1)
+
     df = read_names(names_txt_path)
     print(get_done(df, done_path))
     studrow = df[df.MN == matnr].copy()
@@ -121,6 +121,10 @@ def show(done):
     Shows not done hand ins in a tabular format.
     If -d is given, shows the done hand ins
     """
+    if not names_txt_path.exists():
+        print("[ERROR]: Please run the extract command first, names.txt missing")
+        exit(-1)
+
     df = read_names(names_txt_path)
     if done:
         print("DONE:")
@@ -140,6 +144,10 @@ def to_xlsx(excelfile, tutorname):
     Exports results from names.txt to the given EXCELFILE with given TUTORNAME. You can also set the TUTN environment
     variable to pass this in. The original excel will not be edited, a new one with _done.xlsx will be created.
     """
+    if not names_txt_path.exists():
+        print("[ERROR]: Please run the extract command first, names.txt missing")
+        exit(-1)
+
     xl = pd.read_excel(excelfile, dtype={"ID-Nummer": "string"})
     punkte_col = next(s for s in xl.columns if s.endswith("Punkte"))
     df = read_names(names_txt_path)
