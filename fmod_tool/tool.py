@@ -5,8 +5,8 @@ import click_pathlib
 import pandas as pd
 from yaml import load, SafeLoader
 
-from .helpers import *
 from .default_settings import *
+from .helpers import *
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -30,7 +30,11 @@ if not names_txt_path.exists():
     exit(-1)
 
 settings = load(settings_file.read_text(), Loader=SafeLoader)
-max_p = settings["Maximum Points"]
+try:
+    max_p = {k: int(v) for k, v in settings["Maximum Points"].items()}
+except ValueError:
+    print("Please provide numbers for the points")
+    exit(-1)
 after_finish = settings["After Finish"]
 
 
