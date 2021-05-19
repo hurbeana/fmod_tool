@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "A simple tool made to help keep track when correcting exercises for the course \"Formale Modellierung\""
 authors = ["Hurbean Alexander <alexander.hurbean@tuwien.ac.at>"]
 license = "MIT"
+readme = "README.md"
+repository = "https://github.com/hurbeana/fmod_tool"
+keywords = ["FMOD", "correction", "assistance", "TU Vienna"]
 
 [tool.poetry.scripts]
 tool = "fmod_tool.tool:tools"
