@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fmod_tool"
-version = "0.1.0"
+version = "0.1.2"
 description = "A simple tool made to help keep track when correcting exercises for the course \"Formale Modellierung\""
 authors = ["Hurbean Alexander <alexander.hurbean@tuwien.ac.at>"]
 license = "MIT"
@@ -12,7 +12,7 @@ keywords = ["FMOD", "correction", "assistance", "TU Vienna"]
 tool = "fmod_tool.tool:tools"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.7.1"
 click = "^8.0.0"
 click-pathlib = "^2020.3.13"
 numpy = "^1.20.3"
