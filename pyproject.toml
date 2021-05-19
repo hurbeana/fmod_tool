@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "fmod_tool"
+version = "0.1.0"
+description = "A simple tool made to help keep track when correcting exercises for the course \"Formale Modellierung\""
+authors = ["Hurbean Alexander <alexander.hurbean@tuwien.ac.at>"]
+license = "MIT"
+
+[tool.poetry.scripts]
+tool = "fmod_tool.tool:tools"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+click = "^8.0.0"
+click-pathlib = "^2020.3.13"
+numpy = "^1.20.3"
+openpyxl = "^3.0.7"
+pandas = "^1.2.4"
+tabulate = "^0.8.9"
+xlrd = "^2.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
